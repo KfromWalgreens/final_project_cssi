@@ -1,9 +1,16 @@
 import testinggg 
 feed = 5
 startHungerX= 600
+fun = 5
+startFunX= 50
+freshness = 5
+startFreshnessX= 600
+fatigue = 5
+startFatigueX= 600
 
 def setup():
     global startHungerX
+    global startFunX
     size(900,800)
     background(250, 240, 247)
     fill(56, 30, 30)
@@ -26,32 +33,56 @@ def setup():
     textSize(20)
     text("Hunger", 600, 680)
     rect(600,690,200,30)
+    textSize(20)
+    text("Fun", 50, 680)
+    rect(50,690,200,30)
     i = 0
     while i < 5: 
         fill(255,0,0)
         rect(startHungerX, 690,20,30)
         startHungerX += 20
         i += 1
+    i = 0
+    while i < 5: 
+        fill(255,0,0)
+        rect(startFunX, 690,20,30)
+        startFunX += 20
+        i += 1
     
 def draw():
     global feed
     global startHungerX
+    global fun
+    global startFunX
     if feed < 10 and mousePressed: 
         if mouseX > 45 and mouseX < 180 and mouseY > 150 and mouseY < 400:
             print(mouseX)
-            frameRate(.5)
+            frameRate(1)
             fill(255,0,0)
             rect(startHungerX, 690,20,30)
             startHungerX += 20
             feed += 1
-            print(feed)
+            #print(feed)
     if feed >= 0: 
         if frameCount % 10 == 0: 
             fill(0,0,0)
             rect(startHungerX, 690,20,30)
             startHungerX -= 20
             feed -= 1
-            print(feed)
-            # testinggg.setup()
-            # testinggg.draw()
-    #the hungry bar goes down a block every 3 minutes and doesn't go past the end of the bar 
+            #print(feed)
+    if fun < 10 and mousePressed: 
+        if mouseX > 150 and mouseX < 280 and mouseY > 480 and mouseY < 580:
+            print(mouseY)
+            frameRate(1)
+            fill(255,0,0)
+            rect(startFunX, 690,20,30)
+            startFunX += 20
+            fun += 1
+            #print(fun)
+    if fun >= 0: 
+        if frameCount % 10 == 0: 
+            fill(0,0,0)
+            rect(startFunX, 690,20,30)
+            startFunX -= 20
+            fun -= 1
+            #print(fun)
